@@ -1,0 +1,18 @@
+title: My Monitor
+
+endpoints:
+  - name: Google
+    description: "Check Google web page"
+    enable: true
+    url: "https://www.google.com"
+    interval: "1m"
+    condition:
+      status: 200
+
+  - name: My Site
+    description: "Check my web page"
+    enable: false
+    url: "https://mysite.com"
+    interval: "1m"
+    condition:
+      status: 200
