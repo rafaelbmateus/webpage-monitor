@@ -6,6 +6,7 @@ This project check the web services http status.
 
 ```yaml
 title: My Monitor
+slack_webhook_url: "https://hooks.slack.com/services/ABABABABA/BABABABABAB/BLABLABLABLABLABLABLABLA"
 
 endpoints:
   - name: Google
@@ -33,9 +34,5 @@ To run the project execute:
 go run cmd/main.go
 ```
 
-If you want to notify by slack when a website goes down,
-add `SLACK_WEBHOOK_URL` as environment variable:
-
-```
-SLACK_WEBHOOK_URL = https://hooks.slack.com/services/AAAA/BBBBB/CCCCC go run cmd/main.go
-```
+If you don't want send notifications by slack when a website goes down,
+remove `slack_webhook_url` from config file.

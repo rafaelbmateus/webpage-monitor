@@ -60,10 +60,6 @@ func (m *Monitor) MonitorSleep(endpoint *config.Endpoint) {
 func (m *Monitor) Monitor(endpoint *config.Endpoint) error {
 	m.Log.Debug().Msgf("monitor endpoint %v", endpoint)
 
-	if endpoint.Method == "" {
-		endpoint.Method = "GET"
-	}
-
 	req, err := http.NewRequest(endpoint.Method, endpoint.URL, nil)
 	if err != nil {
 		return err

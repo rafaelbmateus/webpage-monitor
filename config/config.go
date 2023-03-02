@@ -9,8 +9,9 @@ import (
 )
 
 type Config struct {
-	Title     string      `yaml:"title"`
-	Endpoints []*Endpoint `yaml:"endpoints"`
+	Title      string      `yaml:"title"`
+	Endpoints  []*Endpoint `yaml:"endpoints"`
+	WebhookURL string      `yaml:"slack_webhook_url"`
 }
 
 type Endpoint struct {
@@ -52,7 +53,7 @@ func readConfigurationFile(fileName string) (config *Config, err error) {
 	return
 }
 
-// parseAndValidateConfigBytes parses a Gatus configuration file into a Config struct and validates its parameters
+// parseAndValidateConfigBytes parses configuration file into a Config struct and validates.
 func parseAndValidateConfigBytes(yamlBytes []byte) (config *Config, err error) {
 	yamlBytes = []byte(os.ExpandEnv(string(yamlBytes)))
 	if err = yaml.Unmarshal(yamlBytes, &config); err != nil {

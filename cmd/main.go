@@ -21,7 +21,7 @@ func main() {
 		return
 	}
 
-	notify := monitor.NewSlackNotify(cfg.Title, os.Getenv("SLACK_WEBHOOK_URL"))
+	notify := monitor.NewSlackNotify(cfg.Title, cfg.WebhookURL)
 	monitor.NewMonitor(ctx, &log, notify).Run(cfg)
 
 	select {} // block forever

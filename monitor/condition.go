@@ -8,14 +8,14 @@ import (
 )
 
 // VerifyStatusCode verify status code.
-func VerifyStatusCode(res *http.Response, con *config.Condition) error {
-	if con.StatusCode == 0 {
+func VerifyStatusCode(res *http.Response, cfg *config.Condition) error {
+	if cfg.StatusCode == 0 {
 		return nil
 	}
 
-	if res.StatusCode != con.StatusCode {
+	if cfg.StatusCode != res.StatusCode {
 		return fmt.Errorf("status is not equals - expected: %d actual: %d",
-			con.StatusCode, res.StatusCode)
+			cfg.StatusCode, res.StatusCode)
 	}
 
 	return nil
